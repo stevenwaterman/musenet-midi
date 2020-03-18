@@ -1,5 +1,5 @@
 import {MidiData, MidiEvent, MidiTrack, parseMidi} from "midi-file";
-import _ from "lodash";
+import * as _ from "lodash";
 import {getInstrumentInfo, MusenetEncoding} from "./instruments";
 
 async function parseMidiFile(file: File): Promise<MidiData> {
