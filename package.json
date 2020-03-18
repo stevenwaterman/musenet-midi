@@ -2,7 +2,7 @@
   "name": "musenet-midi",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "dependencies": {
     "@types/lodash": "^4.14.149",
     "lodash": "^4.17.15",

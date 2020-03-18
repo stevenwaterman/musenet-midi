@@ -1,6 +1,6 @@
 import "lodash/common/collection";
-import {fromMidiToMusenet} from "./fromMidi";
-import {fromMusenetToMidi} from "./toMidi";
+import {fromMidiToMusenet} from "./lib/fromMidi";
+import {fromMusenetToMidi} from "./lib/toMidi";
 
 export const fromMidi = fromMidiToMusenet;
 export const toMidi = fromMusenetToMidi;
