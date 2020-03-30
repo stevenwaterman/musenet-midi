@@ -1,6 +1,4 @@
 declare module "midi-file" {
-
-
     type MidiEventBase<TYPE extends string> = {
         deltaTime: number;
         type: TYPE

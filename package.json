@@ -2,7 +2,7 @@
   "name": "musenet-midi",
   "version": "1.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "index",
   "dependencies": {
     "@types/node": "^13.9.2",
     "midi-file": "^1.1.2"
