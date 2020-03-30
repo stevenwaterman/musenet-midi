@@ -1,5 +1,4 @@
 import {MidiData, MidiEvent, MidiTrack, parseMidi} from "midi-file";
-import * as _ from "lodash";
 import {getInstrumentInfo, MusenetEncoding} from "./instruments";
 
 async function parseMidiFile(file: File): Promise<MidiData> {
@@ -33,7 +32,8 @@ function withStartTimes(track: MidiTrack): MidiTrackWithStartTime {
 }
 
 function mergeTracks(midi: MidiData) {
-    const merged: MidiTrackWithStartTime = _.flatMap<MidiTrack, MidiEventWithStartTime>(midi.tracks, withStartTimes);
+    const merged: MidiTrackWithStartTime = [];
+    midi.tracks.map(withStartTimes).forEach(it => merged.push(...it));
     merged.sort((a: ObjectWithStartTime, b: ObjectWithStartTime) => b.startTime - a.startTime);
     return merged;
 }
