@@ -1,4 +1,3 @@
-import "lodash/common/collection";
 import {fromMidiToMusenet} from "./lib/fromMidi";
 import {fromMusenetToMidi} from "./lib/toMidi";
 
