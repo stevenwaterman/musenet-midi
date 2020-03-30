@@ -1,4 +1,4 @@
-import {MidiData, writeMidi} from "midi-file";
+import {MidiData, writeMidi} from "./index";
 import {Instrument, instrumentChannels, MusenetEncoding} from "./instruments";
 
 export function fromMusenetToMidi(encoded: MusenetEncoding): Blob {
