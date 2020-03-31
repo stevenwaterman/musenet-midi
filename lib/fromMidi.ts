@@ -81,9 +81,11 @@ function toMusenetEncoding(mergedTrack: MidiTrackWithStartTime): MusenetEncoding
         if (event.type == "noteOff") {
             const instrument = currentInstruments[event.channel];
             const {off} = getInstrumentInfo(instrument, event.channel);
-            tokens.push(event.noteNumber + off * 128);
-            // noinspection UnnecessaryContinueJS
-            continue;
+            if(off !== null) {
+                tokens.push(event.noteNumber + off * 128);
+                // noinspection UnnecessaryContinueJS
+                continue;
+            }
         }
     }
     return tokens;

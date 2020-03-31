@@ -30,13 +30,23 @@ export function fromMusenetToMidi(encoded: MusenetEncoding): Blob {
     tokens.forEach(token => {
         if (token.type === "note") {
             const trackIndex = instrumentChannels[token.instrument];
-            midiData.tracks[trackIndex].push({
-                deltaTime: deltaTime[trackIndex],
-                channel: trackIndex,
-                type: token.volume > 0 ? "noteOn" : "noteOff",
-                noteNumber: token.pitch,
-                velocity: token.volume
-            });
+            if(token.volume === 0) {
+                midiData.tracks[trackIndex].push({
+                    deltaTime: deltaTime[trackIndex],
+                    channel: trackIndex,
+                    type: "noteOff",
+                    noteNumber: token.pitch,
+                    velocity: token.volume
+                })
+            } else {
+                midiData.tracks[trackIndex].push({
+                    deltaTime: deltaTime[trackIndex],
+                    channel: trackIndex,
+                    type: "noteOn",
+                    noteNumber: token.pitch,
+                    velocity: token.volume
+                })
+            }
             if (token.instrument == "drum") usedDrumNotes.add(token.pitch);
             deltaTime[trackIndex] = 0;
         } else if (token.type == "wait") {

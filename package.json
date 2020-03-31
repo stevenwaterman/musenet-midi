@@ -1,7 +1,6 @@
 {
   "name": "musenet-midi",
-  "version": "1.0.4",
-  "description": "",
+  "version": "1.0.4", "description": "",
   "main": "index",
   "dependencies": {
     "@types/node": "^13.9.2",
