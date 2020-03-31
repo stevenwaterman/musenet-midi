@@ -6,9 +6,14 @@ async function parseMidiFile(file: File): Promise<MidiData> {
         const reader: FileReader = new FileReader();
         reader.readAsArrayBuffer(file);
         reader.onload = (readerEvent: ProgressEvent<FileReader>) => {
-            const result = readerEvent.target.result as ArrayBuffer;
-            const midiData: MidiData = parseMidi(new Uint8Array(result));
-            resolve(midiData);
+            const target = readerEvent.target;
+            if (target !== null) {
+                const result = target.result;
+                if(result !== null) {
+                    const midiData: MidiData = parseMidi(new Uint8Array(result as ArrayBuffer));
+                    resolve(midiData);
+                }
+            }
         }
     })
 }
