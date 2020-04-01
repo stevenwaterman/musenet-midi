@@ -5,7 +5,9 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "typeRoots": ["./types", "./node_modules/@types"],
-    "strict": true
+    "strict": true,
+    "declaration": true,
+    "outDir": "dist"
   },
   "exclude": [
     "node_modules",
