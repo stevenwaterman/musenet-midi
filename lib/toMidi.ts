@@ -22,7 +22,7 @@ export function fromMusenetToMidi(encoded: MusenetEncoding): Blob {
         ]
     };
 
-    const tokens: Token[] = encoded.map(parseToken);
+    const tokens: Token[] = encoded.map(parseToken).filter(it => it !== null) as Token[];
 
     const usedDrumNotes: Set<number> = new Set<number>();
     const deltaTime = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -134,7 +134,7 @@ const tokenInfo: Array<[Instrument, number]> = [
     ["harp", 0]
 ];
 
-export function parseToken(token: number): Token {
+export function parseToken(token: number): Token | null {
     if (token >= 0 && token < 3840) {
         const [instrument, volume] = tokenInfo[token >> 7];
         return {type: "note", pitch: token % 128, instrument, volume};
@@ -142,5 +142,5 @@ export function parseToken(token: number): Token {
     if (token < 3968) return {type: "note", pitch: token % 128, instrument: "drum", volume: 80};
     if (token < 4096) return {type: "wait", delay: (token % 128) + 1};
     if (token == 4096) return {type: "start"};
-    throw new Error("Unrecognised token " + token);
+    return null;
 }
