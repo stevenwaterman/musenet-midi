@@ -39,7 +39,7 @@ function withStartTimes(track: MidiTrack): MidiTrackWithStartTime {
 function mergeTracks(midi: MidiData) {
     const merged: MidiTrackWithStartTime = [];
     midi.tracks.map(withStartTimes).forEach(it => merged.push(...it));
-    merged.sort((a: ObjectWithStartTime, b: ObjectWithStartTime) => b.startTime - a.startTime);
+    merged.sort((a: ObjectWithStartTime, b: ObjectWithStartTime) => a.startTime - b.startTime);
     return merged;
 }
 
