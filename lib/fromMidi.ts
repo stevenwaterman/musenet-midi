@@ -58,13 +58,13 @@ function getWaitTokens(waitTime: number): number[] {
 }
 
 function toMusenetEncoding(mergedTrack: MidiTrackWithStartTime): MusenetEncoding {
-    const tokens: number[] = [];
+    const encoding: MusenetEncoding = [];
     let lastStartTime = 0;
     const currentInstruments = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     for (let event of mergedTrack) {
         const waitTime = event.startTime - lastStartTime;
-        tokens.push(...getWaitTokens(waitTime));
+        encoding.push(...getWaitTokens(waitTime));
         lastStartTime = event.startTime;
 
         if (event.type == "programChange") {
@@ -75,7 +75,7 @@ function toMusenetEncoding(mergedTrack: MidiTrackWithStartTime): MusenetEncoding
         if (event.type == "noteOn") {
             const instrument = currentInstruments[event.channel];
             const {on} = getInstrumentInfo(instrument, event.channel);
-            tokens.push(event.noteNumber + on * 128);
+            encoding.push(event.noteNumber + on * 128);
             continue;
         }
 
@@ -83,17 +83,17 @@ function toMusenetEncoding(mergedTrack: MidiTrackWithStartTime): MusenetEncoding
             const instrument = currentInstruments[event.channel];
             const {off} = getInstrumentInfo(instrument, event.channel);
             if(off !== null) {
-                tokens.push(event.noteNumber + off * 128);
+                encoding.push(event.noteNumber + off * 128);
                 // noinspection UnnecessaryContinueJS
                 continue;
             }
         }
     }
-    return tokens;
+    return encoding;
 }
 
 export async function fromMidiToMusenet(file: File): Promise<MusenetEncoding> {
     const midiData: MidiData = await parseMidiFile(file);
-    const mergedTrack: MidiEventWithStartTime[] = mergeTracks(midiData);
+    const mergedTrack: MidiTrackWithStartTime = mergeTracks(midiData);
     return toMusenetEncoding(mergedTrack);
 }

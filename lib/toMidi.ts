@@ -24,7 +24,6 @@ export function fromMusenetToMidi(encoded: MusenetEncoding): Blob {
 
     const tokens: Token[] = encoded.map(parseToken).filter(it => it !== null) as Token[];
 
-    const usedDrumNotes: Set<number> = new Set<number>();
     const deltaTime = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     tokens.forEach(token => {
@@ -46,25 +45,22 @@ export function fromMusenetToMidi(encoded: MusenetEncoding): Blob {
                     noteNumber: token.pitch,
                     velocity: token.volume
                 })
+                if(token.instrument === "drum"){
+                    midiData.tracks[9].push({
+                        deltaTime: 0,
+                        channel: 9,
+                        type: "noteOff",
+                        "noteNumber": token.pitch,
+                        "velocity": 0
+                    });
+                }
             }
-            if (token.instrument == "drum") usedDrumNotes.add(token.pitch);
             deltaTime[trackIndex] = 0;
-        } else if (token.type == "wait") {
+        } else if (token.type === "wait") {
             for (let j = 0; j < 10; j++) {
                 deltaTime[j] += token.delay;
             }
         }
-    });
-
-    usedDrumNotes.forEach(pitch => {
-        midiData.tracks[9].push({
-            deltaTime: deltaTime[9],
-            channel: 9,
-            type: "noteOff",
-            "noteNumber": pitch,
-            "velocity": 0
-        });
-        deltaTime[9] = 0;
     });
 
     midiData.tracks.forEach((track, idx) => {
