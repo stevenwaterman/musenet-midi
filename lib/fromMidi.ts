@@ -1,4 +1,4 @@
-import {MidiData, MidiEvent, MidiTrack, parseMidi} from "midi-file";
+import {MidiData, MidiEvent, MidiHeader, MidiTrack, parseMidi} from "midi-file";
 import {getInstrumentInfo, MusenetEncoding} from "./instruments";
 
 async function parseMidiFile(file: File): Promise<MidiData> {
@@ -23,11 +23,11 @@ type MidiEventWithStartTime = MidiEvent & ObjectWithStartTime;
 
 type MidiTrackWithStartTime = MidiEventWithStartTime[];
 
-function withStartTimes(track: MidiTrack): MidiTrackWithStartTime {
+function withStartTimes(track: MidiTrack, timeDivision: number): MidiTrackWithStartTime {
     const output: MidiTrackWithStartTime = [];
     let startTime = 0;
     for (let event of track) {
-        startTime += event.deltaTime;
+        startTime += event.deltaTime * timeDivision;
         output.push({
             ...event,
             startTime
@@ -36,9 +36,23 @@ function withStartTimes(track: MidiTrack): MidiTrackWithStartTime {
     return output;
 }
 
+function getTimeDivision(header: MidiHeader): number {
+    if("timeDivision" in header) {
+        return header.timeDivision;
+    }
+    if("ticksPerBeat" in header) {
+        return 48 / header.ticksPerBeat;
+    }
+    if("ticksPerFrame" in header) {
+        return 1_000_000 / (header.ticksPerFrame * header.framesPerSecond);
+    }
+    return 48;
+}
+
 function mergeTracks(midi: MidiData) {
     const merged: MidiTrackWithStartTime = [];
-    midi.tracks.map(withStartTimes).forEach(it => merged.push(...it));
+    const timeDivision = getTimeDivision(midi.header);
+    midi.tracks.map(track => withStartTimes(track, timeDivision)).forEach(it => merged.push(...it));
     merged.sort((a: ObjectWithStartTime, b: ObjectWithStartTime) => a.startTime - b.startTime);
     return merged;
 }
