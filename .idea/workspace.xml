@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:dist" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7104b548-26e0-4536-8a95-64afbb39756e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="dist" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1c4soQMoixUhp32ub1eMNNB1e8h" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="ics" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/index.js.map" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/index.d.ts" />
+        <option value="$PROJECT_DIR$/lib/fromMidi.d.ts" />
+        <option value="$PROJECT_DIR$/lib/instruments.js.map" />
+        <option value="$PROJECT_DIR$/lib/fromMidi.js.map" />
+        <option value="$PROJECT_DIR$/lib/instruments.js" />
+        <option value="$PROJECT_DIR$/lib/toMidi.js.map" />
+        <option value="$PROJECT_DIR$/lib/toMidi.d.ts" />
+        <option value="$PROJECT_DIR$/lib/toMidi.js" />
+        <option value="$PROJECT_DIR$/lib/instruments.d.ts" />
+        <option value="$PROJECT_DIR$/lib/fromMidi.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dist" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix midi-&gt;musenet sort order" />
+    <MESSAGE value="Update dist" />
+    <MESSAGE value="Prevent extra breaks being added" />
+    <MESSAGE value="Bump version number" />
+    <MESSAGE value="Update release" />
+    <MESSAGE value="Fix a few type definitions and add drum note off events" />
+    <MESSAGE value="Attempt fix of custom tempo" />
+    <MESSAGE value="Add set tempo support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add set tempo support" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2304" y="1518" width="528" height="493" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589984905524">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state x="2304" y="1518" width="528" height="493" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1589984905524" />
+    <state x="1960" y="1214" width="705" height="1010" key="CommitChangelistDialog2" timestamp="1593523207254">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state x="1960" y="1214" width="705" height="1010" key="CommitChangelistDialog2/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523207254" />
+    <state x="2141" y="1529" width="428" height="476" key="FileChooserDialogImpl" timestamp="1593523326376">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state x="2141" y="1529" width="428" height="476" key="FileChooserDialogImpl/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523326376" />
+    <state width="2518" height="422" key="GridCell.Tab.0.bottom" timestamp="1593523326953">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="422" key="GridCell.Tab.0.bottom/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523326953" />
+    <state width="2518" height="422" key="GridCell.Tab.0.center" timestamp="1593523326953">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="422" key="GridCell.Tab.0.center/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523326953" />
+    <state width="2518" height="422" key="GridCell.Tab.0.left" timestamp="1593523326953">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="422" key="GridCell.Tab.0.left/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523326953" />
+    <state width="2518" height="422" key="GridCell.Tab.0.right" timestamp="1593523326953">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="422" key="GridCell.Tab.0.right/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523326953" />
+    <state x="1935" y="1321" width="804" height="528" key="Vcs.Push.Dialog.v2" timestamp="1593523208904">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state x="1935" y="1321" width="804" height="528" key="Vcs.Push.Dialog.v2/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523208904" />
+    <state x="2066" y="1519" width="588" height="544" key="find.popup" timestamp="1589984601785">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state x="2066" y="1519" width="588" height="544" key="find.popup/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1589984601785" />
+    <state x="2122" y="1384" width="462" height="726" key="git4idea.branch.GitSmartOperationDialog" timestamp="1593523059129">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state x="2122" y="1384" width="462" height="726" key="git4idea.branch.GitSmartOperationDialog/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1593523059129" />
+    <state x="1170" y="1403" width="672" height="678" key="search.everywhere.popup" timestamp="1590257316790">
+      <screen x="1080" y="1080" width="2560" height="1440" />
+    </state>
+    <state x="1170" y="1403" width="672" height="678" key="search.everywhere.popup/1080.1080.2560.1440/3640.840.1080.1920/1400.0.1920.1080/0.840.1080.1920@1080.1080.2560.1440" timestamp="1590257316790" />
+  </component>
+</project>

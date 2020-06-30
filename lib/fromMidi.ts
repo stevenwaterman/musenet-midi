@@ -60,7 +60,7 @@ function mergeTracks(midi: MidiData) {
 function getWaitTokens(waitTime: number, bpm: number): number[] {
     const tokens: number[] = [];
 
-    const adjustment = bpm / 120;
+    const adjustment = 120 / bpm;
     const delay = waitTime * adjustment;
 
     const fullBlocks = Math.floor(delay / 128);
