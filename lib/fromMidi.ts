@@ -57,14 +57,18 @@ function mergeTracks(midi: MidiData) {
     return merged;
 }
 
-function getWaitTokens(waitTime: number, microsecondsPerBeat: number): number[] {
+function getWaitTokens(waitTime: number, bpm: number): number[] {
     const tokens: number[] = [];
-    const fullBlocks = Math.floor(waitTime / 128);
+
+    const adjustment = bpm / 120;
+    const delay = waitTime * adjustment;
+
+    const fullBlocks = Math.floor(delay / 128);
 
     for (let i = 0; i < fullBlocks; i++) {
         tokens.push(4095);
     }
-    const lastBlock = waitTime % 128;
+    const lastBlock = delay % 128;
     if (lastBlock) {
         tokens.push(3967 + lastBlock);
     }
