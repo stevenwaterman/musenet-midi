@@ -57,7 +57,7 @@ function mergeTracks(midi: MidiData) {
     return merged;
 }
 
-function getWaitTokens(waitTime: number): number[] {
+function getWaitTokens(waitTime: number, microsecondsPerBeat: number): number[] {
     const tokens: number[] = [];
     const fullBlocks = Math.floor(waitTime / 128);
 
@@ -75,25 +75,31 @@ function toMusenetEncoding(mergedTrack: MidiTrackWithStartTime): MusenetEncoding
     const encoding: MusenetEncoding = [];
     let lastStartTime = 0;
     const currentInstruments = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let bpm = 120;
 
     for (let event of mergedTrack) {
         const waitTime = event.startTime - lastStartTime;
-        encoding.push(...getWaitTokens(waitTime));
+        encoding.push(...getWaitTokens(waitTime, bpm));
         lastStartTime = event.startTime;
 
-        if (event.type == "programChange") {
+        if (event.type === "setTempo") {
+            bpm = 60 * 1000 * 1000 / event.microsecondsPerBeat;
+            continue;
+        }
+
+        if (event.type === "programChange") {
             currentInstruments[event.channel] = event.programNumber;
             continue;
         }
 
-        if (event.type == "noteOn") {
+        if (event.type === "noteOn") {
             const instrument = currentInstruments[event.channel];
             const {on} = getInstrumentInfo(instrument, event.channel);
             encoding.push(event.noteNumber + on * 128);
             continue;
         }
 
-        if (event.type == "noteOff") {
+        if (event.type === "noteOff") {
             const instrument = currentInstruments[event.channel];
             const {off} = getInstrumentInfo(instrument, event.channel);
             if(off !== null) {
